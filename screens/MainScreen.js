@@ -27,15 +27,15 @@ export default class MainScreen extends Component {
         })
     }
 
-
     render() {
         return (
             <View style={styles.container}>
                 <ScrollView>
                     {
-                        this.state.names.map((item, index) => (
-                            <View key={item.id} style={styles.item}>
-                                <TouchableOpacity style={styles.result} onPress={() => this.goToScreen(item.test)}>
+                        this.state.names.map((item) => (
+                            <View key={item.id}>
+
+                                <TouchableOpacity style={styles.touch} onPress={() => this.goToScreen(item.test)}>
                                     <Text style={styles.text}>{item.name}</Text>
                                 </TouchableOpacity>
                             </View>
@@ -43,55 +43,31 @@ export default class MainScreen extends Component {
                     }
                 </ScrollView>
             </View>
-            /*<View style={styles.container}>
-
-                <TouchableOpacity style={styles.test}
-                    onPress={() => this.goToScreen('TestScreen')}>
-                    <Text>test #1</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.test}
-                    onPress={() => this.goToScreen('TestScreen')}>
-                    <Text>test #2</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.test}
-                    onPress={() => this.goToScreen('TestScreen')}>
-                    <Text>test #1</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.test}
-                    onPress={() => this.goToScreen('TestScreen')}>
-                    <Text>test #1</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.result}
-                    onPress={() => this.goToScreen('ResultScreen')}>
-                    <Text>Result Screen</Text>
-                </TouchableOpacity>
-
-            </View>*/
         );
-
     }
 }
-
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        //backgroundColor: '#99CC33',
+    },
+    touch: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        justifyContent: 'center',
-    },
-    item: {
-
-    },
-    result: {
-        flex: 1,
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end'
+        height: 200,
+        margin: 6,
+        //borderColor: '#2a4944',
+        //borderWidth: 2,
+        backgroundColor: '#99CC33',
+        borderRadius: 20,
+        textAlign: 'center'
     },
     text: {
-
+        flex: 1,
+        textAlign: 'center',
+        fontSize: 30,
+        
     }
 })

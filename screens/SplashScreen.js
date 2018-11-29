@@ -57,8 +57,8 @@ export default class SplashScreen extends Component {
                 <Text>Regulamin</Text>
                 <TouchableOpacity style={styles.skip} 
                     onPress={() => this.goToScreen('MainScreen')}>
-                    <Text>Skip</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.text}>Skip</Text>
+                </TouchableOpacity>
             </View>: <View/>
         )
 
@@ -69,9 +69,18 @@ export default class SplashScreen extends Component {
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     skip: {
-
+        justifyContent: 'center',
+        backgroundColor: '#99CC33',
+        height: '7%',
+        width: '30%',
+        borderRadius: 100,
+    },
+    text:{
+        fontSize: 25,
+        textAlign: 'center',
+        textAlignVertical: 'center'
     }
 });
