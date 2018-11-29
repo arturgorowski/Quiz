@@ -1,82 +1,65 @@
 /** @format */
 
-import { Navigation } from "react-native-navigation";
+import { Navigation } from 'react-native-navigation';
 import { Dimensions } from 'react-native';
 
-import mainScreen from './screens/mainScreen';
-import testScreen from './screens/testScreen';
-import resultScreen from './screens/resultScreen';
+import MainScreen from './screens/MainScreen';
+import TestScreen from './screens/TestScreen';
+import ResultScreen from './screens/ResultScreen';
+import SplashScreen from './screens/SplashScreen';
+import StartingScreen from './screens/StartingScreen';
 
-Navigation.registerComponent('mainScreen', () => mainScreen)
-Navigation.registerComponent('testScreen', () => testScreen)
-Navigation.registerComponent('resultScreen', () => resultScreen)
+const { width } = Dimensions.get('window');
+const Drawer = require('./screens/Drawer');
 
-/*const { width } = Dimensions.get('window');
+Navigation.registerComponent('MainScreen', () => MainScreen)
+Navigation.registerComponent('TestScreen', () => TestScreen)
+Navigation.registerComponent('ResultScreen', () => ResultScreen)
+Navigation.registerComponent('Drawer', () => Drawer)
+Navigation.registerComponent('SplashScreen', () => SplashScreen)
+Navigation.registerComponent('StartingScreen', () => StartingScreen)
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setDefaultOptions({
-    topBar:{
-      evelation: 0,
+    topBar: {
+      elevation: 0,
       visible: false,
       drawBehind: true,
       animate: false,
       buttonColor: 'white',
       title: {
         color: 'white',
-        alignment: 'center',
-        text: 'Home Page'
+        alignment: 'center'
       },
-      background:{
+      background: {
         color: 'transparent'
       }
     }
   });
   Navigation.setRoot({
     root: {
-      sideMenu:{
-        left:{
-          component:{
-            id : 'drawerId',
+      sideMenu: {
+        left: {
+          component: {
+            id: 'drawerId',
             name: 'Drawer',
             fixedWidth: width
           }
-        }
-      },
-      center:{
-        stack:{
-          id: 'AppStack',
-          children: [
-            {
-              component: {
-                name: 'mainScreen',
-              },
-            }
-          ]
-        }
-      }
-    }
-  });
-});*/
-
-Navigation.events().registerAppLaunchedListener(() => {
-  
-  Navigation.setRoot({
-    root: {
-      stack: {
-        id: 'AppStack',
-        children: [
-          {
-            component: {
-              name: 'mainScreen',
-              options: {
-                topBar: {
-                  title: { text: 'Home' }
+        },
+        center: {
+          stack: {
+            id: 'MAIN_STACK',
+            children: [
+             
+              {
+                component:{
+                  name: 'SplashScreen'
                 }
               },
-            },
-          },
-        ]
-      }
+            ]
+          }
+        }
+      },
     }
   });
 });
