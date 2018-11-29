@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 
 
 
-class mainScreen extends Component {
+export default class ResultScreen extends Component {
 
     goToScreen = (screenName) =>{
         Navigation.push(this.props.componentId, {
@@ -16,14 +16,12 @@ class mainScreen extends Component {
     render(){
         return(
             <View style={styles.container}>
-                <Button style={styles.test} title='test screen' onPress={()=>alert('button pressed')}/>
-            
+                <Text>Result</Text>
             </View>
         );
     }
 }
 
-export default mainScreen;
 
 const styles = StyleSheet.create({
     container:{

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import{ View, Text, StyleSheet, Button} from "react-native";
+import { View, Text, StyleSheet, Button, AsyncStorage } from "react-native";
 import { Navigation } from 'react-native-navigation';
 
 
-
-class mainScreen extends Component {
+export default class StartingScreen extends Component {
 
     goToScreen = (screenName) =>{
         Navigation.push(this.props.componentId, {
@@ -13,25 +12,25 @@ class mainScreen extends Component {
             }
         })
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <View style={styles.container}>
-                <Button style={styles.test} title='resultScreen' onPress={()=>alert('button pressed')}/>
-            
+                <Text>TUTORIAL</Text>
+                <Button style={styles.skip} title='Skip' 
+                    onPress={()=> this.goToScreen('MainScreen')}/>
             </View>
         );
     }
 }
 
-export default mainScreen;
-
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    test:{
-
+    skip:{
+        
     }
-})
+});
