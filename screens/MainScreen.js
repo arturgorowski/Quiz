@@ -1,21 +1,20 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, AsyncStorage } from "react-native";
 import { Navigation } from 'react-native-navigation';
 
 export default class MainScreen extends Component {
     constructor(props) {
         super(props);
-        
     }
 
     state = {
         names: [
-            { 'name': 'Quiz #1', 'id': 1, 'test': 'TestScreen' },
-            { 'name': 'Quiz #2', 'id': 2, 'test': 'TestScreen' },
-            { 'name': 'Quiz #3', 'id': 3, 'test': 'TestScreen' },
-            { 'name': 'Quiz #4', 'id': 4, 'test': 'TestScreen' },
-            { 'name': 'Quiz #5', 'id': 5, 'test': 'TestScreen' },
-            { 'name': 'Wyniki', 'id': 6, 'test': 'ResultScreen' }
+            { 'name': 'Harry Potter', 'id': 1, 'screen': 'HarryPotterTest' },
+            { 'name': 'Quiz #2', 'id': 2, 'screen': 'TestScreen' },
+            { 'name': 'Quiz #3', 'id': 3, 'screen': 'TestScreen' },
+            { 'name': 'Quiz #4', 'id': 4, 'screen': 'TestScreen' },
+            { 'name': 'Quiz #5', 'id': 5, 'screen': 'TestScreen' },
+            { 'name': 'Results', 'id': 6, 'screen': 'ResultScreen' }
         ]
     }
 
@@ -34,8 +33,7 @@ export default class MainScreen extends Component {
                     {
                         this.state.names.map((item) => (
                             <View key={item.id}>
-
-                                <TouchableOpacity style={styles.touch} onPress={() => this.goToScreen(item.test)}>
+                                <TouchableOpacity style={styles.touch} onPress={() => this.goToScreen(item.screen)}>
                                     <Text style={styles.text}>{item.name}</Text>
                                 </TouchableOpacity>
                             </View>
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: 200,
+        height: 100,
         margin: 6,
         //borderColor: '#2a4944',
         //borderWidth: 2,
@@ -68,6 +66,6 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: 'center',
         fontSize: 30,
-        
+        fontFamily: "MontSerrat-Medium"
     }
 })

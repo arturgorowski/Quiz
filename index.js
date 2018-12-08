@@ -6,8 +6,12 @@ import { Dimensions } from 'react-native';
 import MainScreen from './screens/MainScreen';
 import TestScreen from './screens/TestScreen';
 import ResultScreen from './screens/ResultScreen';
-import SplashScreen from './screens/SplashScreen';
+import RegulationScreen from './screens/RegulationScreen';
 import StartingScreen from './screens/StartingScreen';
+import HarryPotterTest from './screens/tests/HarryPotterTest'
+
+var React = require('react-native');
+var SQLite = require('react-native-sqlite-storage');
 
 const { width } = Dimensions.get('window');
 const Drawer = require('./screens/Drawer');
@@ -16,8 +20,9 @@ Navigation.registerComponent('MainScreen', () => MainScreen)
 Navigation.registerComponent('TestScreen', () => TestScreen)
 Navigation.registerComponent('ResultScreen', () => ResultScreen)
 Navigation.registerComponent('Drawer', () => Drawer)
-Navigation.registerComponent('SplashScreen', () => SplashScreen)
+Navigation.registerComponent('RegulationScreen', () => RegulationScreen)
 Navigation.registerComponent('StartingScreen', () => StartingScreen)
+Navigation.registerComponent('HarryPotterTest', () => HarryPotterTest)
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setDefaultOptions({
@@ -53,7 +58,7 @@ Navigation.events().registerAppLaunchedListener(() => {
              
               {
                 component:{
-                  name: 'SplashScreen'
+                  name: 'RegulationScreen'
                 }
               },
             ]

@@ -13,7 +13,7 @@ class Drawer extends Component {
   state = {
     names: [
       { 'name': 'Home Page', 'id': 7, 'test': 'MainScreen' },
-      { 'name': 'Quiz #1', 'id': 1, 'test': 'TestScreen' },
+      { 'name': 'Harry Potter', 'id': 1, 'test': 'HarryPotterTest' },
       { 'name': 'Quiz #2', 'id': 2, 'test': 'TestScreen' },
       { 'name': 'Quiz #3', 'id': 3, 'test': 'TestScreen' },
       { 'name': 'Quiz #4', 'id': 4, 'test': 'TestScreen' },
@@ -24,7 +24,6 @@ class Drawer extends Component {
 
 
   goToScreen = (screenName) => {
-    console.log("sggsg")
     Navigation.push('MAIN_STACK', {
       component: {
         name: screenName
